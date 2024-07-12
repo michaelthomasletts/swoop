@@ -1,0 +1,38 @@
+[project]
+# Ensure build is installed by running python3 -m pip install build
+# If changes are made, generate a new wheel with python3 -m build
+# To make the package available in your python environment, run pip install -e .
+name = "swoop"
+authors = [
+  {name="Developer", email="lettsmt@gmail.com"},
+]
+requires-python = ">=3.7"
+dependencies = ["boto3", "botocore"]
+description = "Simple Python package for generating automatically refreshable AWS credentials with boto3 and botocore."
+readme = "README.md"
+version = "0.1"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["swoop"]
+namespaces = false
+
+[tool.distutils.bdist_wheel]
+universal = true
+
+[tool.black]
+line-length = 79
+target-version = ["py37"]
+
+[tool.isort]
+line_length = 79
+ensure_newline_before_comments = true
+use_parentheses = true
+include_trailing_comma = true
+multi_line_output = 3
